@@ -3,15 +3,15 @@ version: '3.8'
 services:
   web:
     build: .
-    command: python /code/manage.py runserver 0.0.0.0:8000
+    command: gunicorn config.wsgi -b 0.0.0.0:8000 # new
     volumes:
       - .:/code
     ports:
       - 8000:8000
     depends_on:
       - db
-    environment: 
-      - "DJANGO_SECRET_KEY=pVSRVpo%1qPZLWDwQ$$x3qNITaZrUGoD6m@88e7CYAg0YGUGEDRNW_Mefsn6KaBcG#Z4SdCgJwhiMbmL0H4Qv*8Mj35Q"
+    environment:
+      - "DJANGO_SECRET_KEY=)*_s#exg*#w+#-xt=vu8b010%%a&p@4edwyj0=(nqq90b9a8*n"
       - "DJANGO_DEBUG=True"
       - "DJANGO_SECURE_SSL_REDIRECT=False"
       - "DJANGO_SECURE_HSTS_SECONDS=0"
